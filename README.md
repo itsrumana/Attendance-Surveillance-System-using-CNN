@@ -67,6 +67,8 @@ for i, result in enumerate(results):
 print("Faces extracted and augmented images saved.")
 
 ```
+Next, create two folders named "train" and "test" and organize the extracted images based on the desired ratio for training and testing purposes.
+
 ## Accuracy Achieved
 
 SVM-83.3% <br>
