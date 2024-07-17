@@ -23,14 +23,12 @@ from mtcnn.mtcnn import MTCNN
 import os
 from keras.preprocessing.image import ImageDataGenerator
 
-
 def save_face(img, box, folder_path, face_id):
     x, y, w, h = box
     face = img[y:y+h, x:x+w]
     face_path = os.path.join(folder_path, f'face_{face_id}.jpg')
     cv.imwrite(face_path, cv.cvtColor(face, cv.COLOR_RGB2BGR))
     return face_path
-
 
 def augment_and_save(image_path, output_folder, datagen, face_id):
     image = cv.imread(image_path)
@@ -46,16 +44,11 @@ img_path = 'screen2/six.jpeg'
 img = cv.imread(img_path)
 img_rgb = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 
-
 detector = MTCNN()
-
-
 results = detector.detect_faces(img_rgb)
-
 
 output_folder = 'test'
 os.makedirs(output_folder, exist_ok=True)
-
 
 datagen = ImageDataGenerator(
     rotation_range=10,
@@ -66,16 +59,15 @@ datagen = ImageDataGenerator(
     fill_mode='nearest'
 )
 
-
 for i, result in enumerate(results):
     box = result['box']
     face_path = save_face(img_rgb, box, output_folder, i)
-
+    augment_and_save(face_path, output_folder, datagen, i)
 
 print("Faces extracted and augmented images saved.")
 
 ```
 ## Accuracy Achieved
 
-SVM-83.3%
+SVM-83.3% <br>
 CNN-87.5%
