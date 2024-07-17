@@ -6,7 +6,7 @@ This project introduces an Attendance Surveillance System using Convolutional Ne
 
 ## Vedio Demonstration
 
-https://github.com/itsrumana/Attendance-Surveillance-System-using-CNN/issues/1#issue-2412583001
+https://github.com/user-attachments/assets/66f12209-3379-4a9d-9ce8-d70a768763c6
 
 ## Dataset
 
